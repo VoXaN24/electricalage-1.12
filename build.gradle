@@ -86,20 +86,11 @@ repositories {
     maven { url "https://vhost.cf/" }
     maven { url "https://maven.cil.li/" }
     maven { url = "http://maven.bluexin.be/repository/snapshots/" }
-//    maven {
-//        name = "CoFH Maven"
-//        url = "https://maven.covers1624.net"
+    maven { url = "https://maven.covers1624.net" }
 //    }
-    
-//     mavenCentral()
-//     maven {
-//         name = "codechicken"
-//         url = "http://chickenbones.net/maven"
-//     }
-//     maven {
-//         name = "mobiusstrip"
-//         url = "http://default.mobiusstrip.eu/maven/"
-//     }
+    mavenCentral()
+    maven { url = "http://chickenbones.net/maven" }
+    maven { url = "http://default.mobiusstrip.eu/maven/" }
 }
 
 dependencies {
@@ -110,8 +101,7 @@ dependencies {
     compileOnly "dan200.computercraft:ComputerCraft:1.80pr1-build5"
     compileOnly "li.cil.oc:OpenComputers:MC1.12.2-1.7.4.153"
     compile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2"
-    // TODO(1.12): Switch to this.
-//    deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal"
+    deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal"
 
 }
 
@@ -208,7 +198,7 @@ clean {
     delete("${minecraft.runDir}/crash-reports")
 }
 
-def getMinecraftDir() {
+def getMinecraftDirs() {
     String outDir = ""
     final String osName = System.getProperty("os.name").toLowerCase()
     if (osName.contains('windows'))
@@ -229,7 +219,7 @@ task buildAndCopyJar(dependsOn: 'build', type: Copy) {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE // Overwrite the file if exists
 
     from("build/libs")
-    into(getMinecraftDir() + "/mods")
+    into(getMinecraftDirs() + "/mods")
     include("*.jar")
 }
 
