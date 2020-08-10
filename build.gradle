@@ -54,7 +54,7 @@ sourceSets {
 }
 
 minecraft {
-    version = "1.12.2-14.23.5.2814"
+    version = "1.12.2-14.23.5.2838"
     runDir = "run"
     mappings = "stable_39"
 
@@ -305,7 +305,7 @@ task updateMasterLanguageFile(type: JavaExec, dependsOn: 'classes') {
 //     changelogType = 'markdown'
 //     changelog = file('changelog.md')
 //     releaseType = 'release'
-//     addGameVersion "1.10.2"
+//     addGameVersion "1.12.2"
 //     mainArtifact(jar) {
 //       displayName = "Electrical Age $project.version"
 //     }
